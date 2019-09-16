@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 import ZendeskSDK
 import ZendeskCoreSDK
+import CommonUISDK
 
 @objc(RNZendesk)
 class RNZendesk: RCTEventEmitter {
@@ -39,7 +40,7 @@ class RNZendesk: RCTEventEmitter {
             let zendeskUrl = config["zendeskUrl"] as? String else { return }
 
         Zendesk.initialize(appId: appId, clientId: clientId, zendeskUrl: zendeskUrl)
-        Support.initialize(withZendesk: Zendesk.instance)
+        SupportUI.initialize(withZendesk: Zendesk.instance)
         let identity = Identity.createAnonymous()
         Zendesk.instance?.setIdentity(identity)
     }

@@ -16,7 +16,7 @@ class RNZendesk: RCTEventEmitter {
 
     override public static func requiresMainQueueSetup() -> Bool {
         return false;
-    }f
+    }
 
     @objc(constantsToExport)
     override func constantsToExport() -> [AnyHashable: Any] {

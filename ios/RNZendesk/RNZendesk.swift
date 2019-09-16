@@ -14,9 +14,9 @@ import ZendeskCoreSDK
 @objc(RNZendesk)
 class RNZendesk: RCTEventEmitter {
 
-    override open static func requiresMainQueueSetup() -> Bool {
+    override public static func requiresMainQueueSetup() -> Bool {
         return false;
-    }
+    }f
 
     @objc(constantsToExport)
     override func constantsToExport() -> [AnyHashable: Any] {

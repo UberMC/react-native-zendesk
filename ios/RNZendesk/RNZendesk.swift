@@ -92,21 +92,23 @@ class RNZendesk: RCTEventEmitter {
             let Phone_or_Tablet_dv: Double = 360016556691
             let Phone_or_Tablet_value: NSNumber = NSNumber(value: Phone_or_Tablet_dv)
 
+            let customFieldOne = CustomField(dictionary: ["id": Device_Brand_value, "value": "some_text"])
+            // let customFieldOne = CustomField(fieldId: Device_Brand_value, value: "some_text")
 
-            let c2 = ZDKCustomField(fieldId: Device_Brand_value, andValue: Device_Brand!)
-            let c3 = ZDKCustomField(fieldId: Device_Model_value, andValue: Device_Model!)
-            let c4 = ZDKCustomField(fieldId: OS_value, andValue: OS!)
-            let c5 = ZDKCustomField(fieldId: OS_Version_value, andValue: OS_Version!)
-            let c6 = ZDKCustomField(fieldId: App_Version_value, andValue: App_Version!)
-            let c7 = ZDKCustomField(fieldId: Connection_value, andValue: Connection!)
-            let c8 = ZDKCustomField(fieldId: Phone_or_Tablet_value, andValue: Phone_or_Tablet!)
+            let c2 = CustomField(dictionary: ["id": Device_Brand_value, "value": Device_Brand!])
+            let c3 = CustomField(dictionary: ["id": Device_Model_value, "value": Device_Model!])
+            let c4 = CustomField(dictionary: ["id": OS_value, "value": OS!])
+            let c5 = CustomField(dictionary: ["id": OS_Version_value, "value": OS_Version!])
+            let c6 = CustomField(dictionary: ["id": App_Version_value, "value": App_Version!])
+            let c7 = CustomField(dictionary: ["id": Connection_value, "value": Connection!])
+            let c8 = CustomField(dictionary: ["id": Phone_or_Tablet_value, "value": Phone_or_Tablet!])
 
             /*
             config.subject = "iOS Ticket"
             config.tags = ["ios", "mobile"]
             */
             let config = RequestUiConfiguration()
-            config.fields = [c2,c3,c4,c5,c6,c7,c8] as! [ZDKCustomField]
+            config.customFields = [customFieldOne] as! [CustomField]
             let helpCenter = HelpCenterUi.buildHelpCenterOverviewUi(withConfigs: [config])
 
 
